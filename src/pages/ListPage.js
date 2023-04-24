@@ -38,13 +38,19 @@ const ListPage = () => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  const [posts, setPosts] = useState([
-    { id: 1, title: '제목1', content: '내용1' },
-    { id: 2, title: '제목2', content: '내용2' },
-    { id: 3, title: '제목3', content: '내용3' },
-    { id: 4, title: '제목4', content: '내용4' },
-    { id: 5, title: '제목5', content: '내용5' },
-  ]);
+  const postList = () => {
+    return [
+      { id: 1, title: '제목1', content: '내용1' },
+      { id: 2, title: '제목2', content: '내용2' },
+      { id: 3, title: '제목3', content: '내용3' },
+      { id: 4, title: '제목4', content: '내용4' },
+      { id: 5, title: '제목5', content: '내용5' },
+    ];
+  };
+
+  const [posts, setPosts] = useState(() => {
+    return postList();
+  });
 
   const handleWrite = () => {
     console.log(posts.length);
